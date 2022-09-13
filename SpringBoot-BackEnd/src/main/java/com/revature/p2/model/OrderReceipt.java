@@ -12,14 +12,22 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Order implements Serializable {
+public class OrderReceipt implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
+    @Column(name="order_id", nullable = false, updatable = false)
     private int id;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User purchaser;
+    private User user;
+    @ManyToMany
+    @JoinTable(
+            name = "Order_Items",
+            joinColumns = {@JoinColumn(name = "order_id")},
+            inverseJoinColumns = {@JoinColumn(name = "item_id")}
+    )
     private List<Item> items;
+
+
 }

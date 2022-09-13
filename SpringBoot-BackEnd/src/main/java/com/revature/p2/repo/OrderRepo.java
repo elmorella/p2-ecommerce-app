@@ -1,6 +1,6 @@
 package com.revature.p2.repo;
 
-import com.revature.p2.model.Order;
+import com.revature.p2.model.OrderReceipt;
 
 import com.revature.p2.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface OrderRepo extends JpaRepository<Order, Integer> {
-    Optional<Order> findOrderById(int id);
-    Optional<List<Order>> findOrdersByUser(User user);
+public interface OrderRepo extends JpaRepository<OrderReceipt, Integer> {
+    Optional<OrderReceipt> findOrderById(int id);
+    Optional<List<OrderReceipt>> findOrdersByUser(User user);
     void deleteOrderById(int id);
 }

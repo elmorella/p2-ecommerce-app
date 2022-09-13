@@ -1,6 +1,6 @@
 package com.revature.p2.controller;
 
-import com.revature.p2.model.Order;
+import com.revature.p2.model.OrderReceipt;
 import com.revature.p2.model.User;
 import com.revature.p2.service.OrderService;
 import org.springframework.http.HttpStatus;
@@ -17,29 +17,29 @@ public class OrderController {
         this.orderService = orderService;
     }
     @GetMapping("/all")
-    public ResponseEntity<List<Order>> getAllUsers(){
-        List<Order> orders = orderService.findAllOrders();
-        return new ResponseEntity<>(orders, HttpStatus.OK);
+    public ResponseEntity<List<OrderReceipt>> getAllUsers(){
+        List<OrderReceipt> orderReceipts = orderService.findAllOrders();
+        return new ResponseEntity<>(orderReceipts, HttpStatus.OK);
     }
     @GetMapping("/all/user")
-    public ResponseEntity<List<Order>> getOrdersByUser(@RequestBody User user){
-        List<Order> orders = orderService.findOrdersByUser(user);
-        return new ResponseEntity<>(orders, HttpStatus.OK);
+    public ResponseEntity<List<OrderReceipt>> getOrdersByUser(@RequestBody User user){
+        List<OrderReceipt> orderReceipts = orderService.findOrdersByUser(user);
+        return new ResponseEntity<>(orderReceipts, HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Order> getOrderById(@PathVariable("id") int id){
-        Order order = orderService.findOrderById(id);
-        return new ResponseEntity<>(order, HttpStatus.OK);
+    public ResponseEntity<OrderReceipt> getOrderById(@PathVariable("id") int id){
+        OrderReceipt orderReceipt = orderService.findOrderById(id);
+        return new ResponseEntity<>(orderReceipt, HttpStatus.OK);
     }
     @PostMapping("/add")
-    public ResponseEntity<Order> addOrder(@RequestBody Order order){
-        Order newOrder = orderService.addOrder(order);
-        return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
+    public ResponseEntity<OrderReceipt> addOrder(@RequestBody OrderReceipt orderReceipt){
+        OrderReceipt newOrderReceipt = orderService.addOrder(orderReceipt);
+        return new ResponseEntity<>(newOrderReceipt, HttpStatus.CREATED);
     }
     @PutMapping("/update")
-    public ResponseEntity<Order> updateOrder(@RequestBody Order order){
-        Order updatedOrder = orderService.updateOrder(order);
-        return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
+    public ResponseEntity<OrderReceipt> updateOrder(@RequestBody OrderReceipt orderReceipt){
+        OrderReceipt updatedOrderReceipt = orderService.updateOrder(orderReceipt);
+        return new ResponseEntity<>(updatedOrderReceipt, HttpStatus.OK);
     }
     @DeleteMapping("delete/{id}")
     public ResponseEntity<?> deleteOrder(@PathVariable("id") int id){
