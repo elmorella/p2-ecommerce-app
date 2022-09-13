@@ -5,10 +5,12 @@ import com.revature.p2.model.User;
 import com.revature.p2.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class UserService{
 
     private final UserRepo userRepo;
@@ -35,6 +37,7 @@ public class UserService{
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
     }
     public User findUserByUsername(String username){
+        System.out.println(username);
         return userRepo.findUserByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
     }

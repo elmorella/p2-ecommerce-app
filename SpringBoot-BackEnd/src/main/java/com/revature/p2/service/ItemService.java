@@ -5,10 +5,12 @@ import com.revature.p2.model.Item;
 import com.revature.p2.repo.ItemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class ItemService {
     private final ItemRepo itemRepo;
 

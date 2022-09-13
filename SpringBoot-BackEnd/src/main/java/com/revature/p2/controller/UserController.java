@@ -1,5 +1,6 @@
 package com.revature.p2.controller;
 
+import com.revature.p2.model.LoginAttempt;
 import com.revature.p2.model.User;
 import com.revature.p2.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -41,8 +42,8 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @PostMapping("/login")
-    public ResponseEntity<User> validateUser(@RequestBody String username, String password){
-        User user = userService.validateUser(username, password);
+    public ResponseEntity<User> validateUser(@RequestBody LoginAttempt loginAttempt){
+        User user = userService.validateUser(loginAttempt.getUsername(), loginAttempt.getPassword());
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }
