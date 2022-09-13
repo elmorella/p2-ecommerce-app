@@ -3,7 +3,6 @@ package com.revature.p2.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -21,13 +20,8 @@ public class OrderReceipt implements Serializable {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-    @ManyToMany
-    @JoinTable(
-            name = "Order_Items",
-            joinColumns = {@JoinColumn(name = "order_id")},
-            inverseJoinColumns = {@JoinColumn(name = "item_id")}
-    )
-    private List<Item> items;
+    @ElementCollection
+    private List<Item> item;
 
 
 }
