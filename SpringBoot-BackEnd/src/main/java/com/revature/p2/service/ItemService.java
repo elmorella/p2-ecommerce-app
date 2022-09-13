@@ -25,4 +25,7 @@ public class ItemService {
         return itemRepo.findItemByName(name)
                 .orElseThrow(() -> new ItemNotFoundException("Item with name:" + name + ", not found"));
     }
+    public void deleteItemById(int id){
+        itemRepo.deleteItemById(id);
+    }
 }

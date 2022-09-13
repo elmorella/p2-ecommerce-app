@@ -1,8 +1,6 @@
-package com.revature.p2;
+package com.revature.p2.controller;
 
 import com.revature.p2.model.User;
-import com.revature.p2.service.ItemService;
-import com.revature.p2.service.OrderService;
 import com.revature.p2.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,39 +9,40 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ecommerce")
-public class Controller {
+@RequestMapping("/user")
+public class UserController {
     private final UserService userService;
-    private final OrderService orderService;
-    private final ItemService itemService;
-    public Controller(UserService userService, OrderService orderService, ItemService itemService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.orderService = orderService;
-        this.itemService = itemService;
     }
-    @GetMapping("/user/all")
+    @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> users = userService.findAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable("id") int id){
         User user = userService.findUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-    @PostMapping("/user/add")
+    @PostMapping("/add")
     public ResponseEntity<User> addUser(@RequestBody User user){
         User newUser = userService.addUser(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
-    @PutMapping("/user/update")
+    @PutMapping("/update")
     public ResponseEntity<User> updateUser(@RequestBody User user){
-        User newUser = userService.addUser(user);
-        return new ResponseEntity<>(newUser, HttpStatus.OK);
+        User updatedUser = userService.updateUser(user);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
-    @DeleteMapping("/user/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable("id") int id){
         userService.deleteUserById(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<User> validateUser(@RequestBody String username, String password){
+        User user = userService.validateUser(username, password);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

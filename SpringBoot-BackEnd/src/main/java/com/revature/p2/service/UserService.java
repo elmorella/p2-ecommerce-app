@@ -18,9 +18,13 @@ public class UserService{
     public User addUser(User user){return userRepo.save(user);}
     public List<User> findAllUsers(){return userRepo.findAll();}
     public User updateUser(User user){return userRepo.save(user);}
-    public Boolean validateUser(String username, String password){
+    public User validateUser(String username, String password){
         User user = findUserByUsername(username);
-        return user.getPassword().contentEquals(password);
+        if(user.getPassword().contentEquals(password)){
+            return user;
+        } else{
+            throw new UserNotFoundException("User not found");
+        }
     }
     public User findUserById(int id){
         return userRepo.findUserById(id)
