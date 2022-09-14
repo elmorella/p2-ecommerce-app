@@ -50,3 +50,14 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.text-danger{
+  color: red;
+
+}
+.text-success{
+  color: green;
+}
+.text-speacial{
+  color: #007bff;
+  font-style: italic;
+}
