@@ -89,3 +89,30 @@ build/
 ### VS Code ###
 .vscode/
 
+### Angular ###
+## Angular ##
+# compiled output
+dist/
+tmp/
+app/**/*.js
+app/**/*.js.map
+
+# dependencies
+node_modules/
+bower_components/
+
+# IDEs and editors
+
+# misc
+connect.lock/
+coverage/
+libpeerconnection.log/
+typings/
+.angular/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+# System Files
+.DS_Store/
