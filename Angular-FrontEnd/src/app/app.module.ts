@@ -1,26 +1,34 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
-import { LoginComponent } from './login/login.component';
-import { ProductPageComponent } from './product-page/product-page.component';
-import { AccountComponent } from './account/account.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CategoryComponent } from './components/category/category.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ProductsPageComponent } from './pages/products-page/products-page.component';
+import { DetailPageComponent } from './pages/detail-page/detail-page.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
-    LoginComponent,
-    ProductPageComponent,
-    AccountComponent,
-    ShoppingCartComponent
+    NavbarComponent,
+    HeaderComponent,
+    CategoryComponent,
+    HomePageComponent,
+    ProductsPageComponent,
+    DetailPageComponent,
+    AboutPageComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

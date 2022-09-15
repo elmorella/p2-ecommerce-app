@@ -25,3 +25,45 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Project Description
+
+This project is an ecommerce store that allows users to view products, add products to their cart, and checkout. 
+The project is built using Angular and TypeScript. The project is also connected to a backend API that is built using Java. 
+The backend API locally hosted as well as the front end. The frontend is also connected to a MySQL database that is locally hosted as well.
+
+![img.png](img.png)
+
+## Technologies Used
+ 
+* Angular - version 14.2.2
+* TypeScript - version 4.4.4
+* Java - version 11.0.12
+* Spring Boot - version 2.5.4
+* MySQL - version 8.0.26
+* Spring Data JPA
+* Spring Web
+* Spring DevTools
+
+
+## Project Features
+
+* Users can view products
+* Users can add products to their cart
+* Users can check out
+* 
+## Getting Started
+
+* Clone the project to your local machine
+* Open the project in your IDE
+* Configure the project to run on your local machine
+* add database connection information to the application.properties file
+* Run the project
+* Navigate to the localhost url that is displayed in the terminal
+
+## database tables
+
+* item
+* user
+* order-receipt
+* order-item
