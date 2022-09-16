@@ -30,9 +30,6 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/Angular-FrontEnd/.angular/
-/Angular-FrontEnd/.angular/cache
-/.angular/cache
 .sass-cache/
 /connect.lock
 /coverage
@@ -94,6 +91,11 @@ build/
 
 ### Angular ###
 ## Angular ##
+
+/Angular-FrontEnd/.angular/
+/Angular-FrontEnd/.angular/cache/
+/.angular/cache
+
 # compiled output
 dist/
 tmp/
@@ -145,5 +147,6 @@ buildNumber.properties
 *.sqlite3
 
 #connection.properties
+
 
 
