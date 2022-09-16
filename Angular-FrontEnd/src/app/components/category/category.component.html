@@ -1,0 +1,14 @@
+<h2 class="text-center">Categories</h2><hr>
+
+<div class="row">
+  <div class="col-md-3" *ngFor="let category of categories">
+    <div class="card">
+      <img src="{{'https://rjtmobile.com/grocery/images/'+category.catImage}}"class="card-img-top alt">
+      <div class="card-body">
+        <h5 class="card-title">{{category.catName}}</h5>
+        <a href="#" class="btn btn-primary">Details</a>
+    </div>
+  </div>
+</div>
+</div>
+
