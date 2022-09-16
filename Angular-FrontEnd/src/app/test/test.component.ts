@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../data/model/user.model';
+import { UserServiceTsService } from '../data/services/user.service';
 
 @Component({
   selector: 'app-test',
@@ -6,10 +9,47 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+  user: User = new User();
+  users: any[] = [];
 
-  constructor() { }
+  constructor(private service: UserServiceTsService) { }
 
   ngOnInit(): void {
   }
 
+  public getAllUsers() {
+    this.service.getAllUsers().subscribe((response: any[]) => {
+      this.users = response;
+    })
+  }
+
+  public addUser(user: User){
+    let newUser = new User();
+    newUser.username = "captain.america";
+    newUser.email = "captain@america.com";
+    newUser.name = "Steve Rogers";
+    newUser.password = "avengers";
+
+    this.service.addUser(newUser).subscribe((response: any) => {
+      this.user = response;
+    })
+  }
+
+  public getUserById(id: Number) {
+    this.service.getUserById(id).subscribe((response: any) => {
+      this.user = response;
+    })
+  }
+
+  public updateUser(user: User) {
+    this.service.updateUser(user).subscribe((response: any) => {
+      this.user = response;
+    })
+  }
+
+  public deleteUser(id: Number) {
+    this.service.deleteUser(id).subscribe((response: any) => {
+      console.log(response);
+    })
+  }
 }

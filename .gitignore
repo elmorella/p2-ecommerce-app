@@ -7,9 +7,9 @@
 /bazel-out
 
 # Node
-/node_modules
 npm-debug.log
 yarn-error.log
+/Angular-FrontEnd/node_modules/
 
 # IDEs and editors
 .idea/
@@ -21,6 +21,7 @@ yarn-error.log
 *.sublime-workspace
 
 # Visual Studio Code
+./vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -29,7 +30,6 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/.angular/cache
 .sass-cache/
 /connect.lock
 /coverage
@@ -91,6 +91,10 @@ build/
 
 ### Angular ###
 ## Angular ##
+./Angular-FrontEnd/.angular/*
+/Angular-FrontEnd/.angular/cache
+/.angular/cache
+
 # compiled output
 dist/
 tmp/
@@ -142,5 +146,6 @@ buildNumber.properties
 *.sqlite3
 
 #connection.properties
+
 
 
