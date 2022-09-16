@@ -91,9 +91,8 @@ build/
 
 ### Angular ###
 ## Angular ##
-
-/Angular-FrontEnd/.angular/
-/Angular-FrontEnd/.angular/cache/
+./Angular-FrontEnd/.angular/*
+/Angular-FrontEnd/.angular/cache
 /.angular/cache
 
 # compiled output
