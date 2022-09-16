@@ -1,10 +1,10 @@
-import { IOrderReceipt } from "./order-receipt.model";
+import { OrderReceipt } from "./order-receipt.model";
 
-export interface IUser{
-    userId: Number;
-    name: String;
-    username: String;
-    email: String;
-    password: String;
-    orderReceipts: Array<IOrderReceipt>;
+export class User{
+    userId?: Number;
+    name?: String;
+    username?: String;
+    email?: String;
+    password?: String;
+    orderReceipts?: Array<OrderReceipt>;
 }

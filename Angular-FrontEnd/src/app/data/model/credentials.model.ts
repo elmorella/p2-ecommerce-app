@@ -1,5 +1,5 @@
 
-export interface ICredentials {
-    username: String;
-    password: String;
+export class Credentials {
+    username?: String;
+    password?: String;
 }

@@ -1,8 +1,8 @@
 import { Item } from "./item.model";
-import { IUser } from "./user.model";
+import { User } from "./user.model";
 
-export interface IOrderReceipt {
-    id: Number;
-    user: IUser;
-    items: Array<Item>;
+export class OrderReceipt {
+    id?: Number;
+    user?: User;
+    items?: Array<Item>;
 }
