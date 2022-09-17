@@ -29,7 +29,7 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
+# Miscellaneous  
 .sass-cache/
 /connect.lock
 /coverage
@@ -61,6 +61,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+.properties
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -93,7 +94,7 @@ build/
 ## Angular ##
 ./Angular-FrontEnd/.angular/*
 /Angular-FrontEnd/.angular/cache
-/.angular/cache
+.angular/cache/
 
 # compiled output
 dist/
