@@ -92,6 +92,7 @@ build/
 
 ### Angular ###
 ## Angular ##
+/Angular-FrontEnd/.angular/
 ./Angular-FrontEnd/.angular/*
 /Angular-FrontEnd/.angular/cache
 .angular/cache/
@@ -147,6 +148,3 @@ buildNumber.properties
 *.sqlite3
 
 #connection.properties
-
-
-
