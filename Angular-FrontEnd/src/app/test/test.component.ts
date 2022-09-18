@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../data/model/user.model';
-import { UserServiceTsService } from '../data/services/user.service';
+import { User } from '../model/user.model';
+import { UserServiceTsService } from '../services/user.service';
 
 @Component({
   selector: 'app-test',

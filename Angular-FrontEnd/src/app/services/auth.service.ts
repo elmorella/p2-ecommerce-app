@@ -9,7 +9,7 @@ import { AuthCertificate } from '../model/authCertificate.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private authCert: AuthCertificate = new AuthCertificate;
+  private authCert: AuthCertificate = new AuthCertificate();
 
   BASE_URL = 'http://localhost:8080'
 
