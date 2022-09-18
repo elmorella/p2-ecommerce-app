@@ -11,6 +11,7 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 import { AccountComponent } from './account/account.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { UserServiceTsService } from './data/services/user.service';
+import { AuthService } from './data/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { UserServiceTsService } from './data/services/user.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserServiceTsService],
+  providers: [UserServiceTsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
