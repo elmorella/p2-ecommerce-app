@@ -14,10 +14,6 @@ export class UserServiceTsService {
 
   constructor(private http: HttpClient) {}
 
-  public doLoginAttempt(credentials: Credentials) : Observable<any>{
-    return this.http.post<any>(`${this.BASE_URL}/user/login`, credentials);
-  }
-
   public getAllUsers() : Observable<any[]>{
     return this.http.get<any[]>(`${this.BASE_URL}/user/all`);
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServiceTsService } from '../../data/services/user.service';
+import { AuthService } from 'src/app/data/services/auth.service';
 import { User } from 'src/app/data/model/user.model';
 import { Credentials } from 'src/app/data/model/credentials.model';
 import { Router } from '@angular/router';
@@ -13,12 +13,12 @@ export class LoginComponent implements OnInit {
   credentials: Credentials = new Credentials();
   user: User = new User();
 
-  constructor(private service: UserServiceTsService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {}
 
   public validateCredentials() {
-    let resp = this.service.doLoginAttempt(this.credentials);
+    let resp = this.authService.doLoginAttempt(this.credentials);
     resp.subscribe((response: User) => { 
       this.user = response;
       console.log(this.credentials, this.user);
