@@ -1,36 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HeaderComponent } from './components/header/header.component';
-import { CategoryComponent } from './components/category/category.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProductsPageComponent } from './pages/products-page/products-page.component';
-import { DetailPageComponent } from './pages/detail-page/detail-page.component';
-import { AboutPageComponent } from './pages/about-page/about-page.component';
-import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { UserServiceTsService } from './services/user.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    HeaderComponent,
-    CategoryComponent,
-    HomePageComponent,
-    ProductsPageComponent,
-    DetailPageComponent,
-    AboutPageComponent,
-    ContactPageComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [UserServiceTsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthCertificate } from 'src/app/model/authCertificate.model';
+import { User } from 'src/app/model/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor() { }
+  user: User;
+  constructor(private authService: AuthService) {
+    let certificate: AuthCertificate = this.authService.getAuthCert();
+    console.log('HOME PAGE');
+    console.log('Authorization token: ' + certificate.authToken);
+    console.log('home page. Username: ' + certificate.user?.username + " isAuthorized: " + certificate.isAuthorized)
+    this.user = certificate.user!;
+   }
 
   ngOnInit(): void {
-  }
-
+     }
 }
