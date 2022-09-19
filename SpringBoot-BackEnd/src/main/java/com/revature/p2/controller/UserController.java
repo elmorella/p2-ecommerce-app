@@ -1,5 +1,6 @@
 package com.revature.p2.controller;
 
+import com.revature.p2.model.AuthCertificate;
 import com.revature.p2.model.LoginAttempt;
 import com.revature.p2.model.User;
 import com.revature.p2.service.UserService;
@@ -41,8 +42,8 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @PostMapping("/login")
-    public ResponseEntity<User> validateUser(@RequestBody LoginAttempt loginAttempt){
-        User user = userService.validateUser(loginAttempt.getUsername(), loginAttempt.getPassword());
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<AuthCertificate> validateUser(@RequestBody LoginAttempt loginAttempt){
+        AuthCertificate authCertificate = userService.validateUser(loginAttempt.getUsername(), loginAttempt.getPassword());
+        return new ResponseEntity<>(authCertificate, HttpStatus.OK);
     }
 }
