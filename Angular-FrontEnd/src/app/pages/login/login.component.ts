@@ -22,15 +22,15 @@ export class LoginComponent implements OnInit {
     let certificate: AuthCertificate = new AuthCertificate();
 
     this.authService.doLoginAttempt(this.credentials).subscribe((response: User) => {
-      let user: User = response;
-      console.log('LOGIN PAGE');
-      certificate.authToken = "TEST TOKEN!!!!!";
-      certificate.isAuthorized = true;
-      certificate.user = user;
-      console.log('isAuthorized: ' + certificate.isAuthorized);
-      console.log('user in cert: ' + certificate.user.username);
-      this.authService.setAuthCert(certificate);
-      this.router.navigate(['home']);
-    })
+        let user: User = response;
+        console.log('LOGIN PAGE');
+        certificate.authToken = "TEST TOKEN!!!!!";
+        certificate.isAuthorized = true;
+        certificate.user = user;
+        console.log('isAuthorized: ' + certificate.isAuthorized);
+        console.log('user in cert: ' + certificate.user.username);
+        this.authService.setAuthCert(certificate);
+        this.router.navigate(['home']);
+      })
   }
 }
