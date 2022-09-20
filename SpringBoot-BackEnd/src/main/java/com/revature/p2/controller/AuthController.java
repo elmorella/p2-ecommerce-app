@@ -25,8 +25,8 @@ public class AuthController {
     }
 
     @PutMapping("/invalidate")
-    public ResponseEntity<?> invalidate(@RequestBody AuthCertificate authCertificate){
-        auth.invalidate(authCertificate);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<AuthCertificate> invalidate(@RequestBody AuthCertificate authCertificate){
+        AuthCertificate invalidCertificate = auth.invalidate(authCertificate);
+        return new ResponseEntity<>(invalidCertificate, HttpStatus.OK);
     }
 }

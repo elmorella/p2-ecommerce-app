@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class AuthCertificate implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", nullable = false, updatable = false)
+    @Column(name = "auth_id", nullable = false, updatable = false)
     private int id;
     private String token;
     private boolean isValid;
