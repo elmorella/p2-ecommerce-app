@@ -37,7 +37,7 @@ public class UserService{
                 certificate.setUser(user);
                 certificate = auth.addNewAuth(certificate);
             } else {
-                auth.validate(certificate);
+                certificate = auth.validate(certificate);
             }
 
             return certificate;
