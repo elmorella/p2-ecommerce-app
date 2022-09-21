@@ -20,7 +20,7 @@ public class OrderController {
         List<OrderReceipt> orderReceipts = orderService.findAllOrders();
         return new ResponseEntity<>(orderReceipts, HttpStatus.OK);
     }
-    @GetMapping("/all/user")
+    @PostMapping("/all/user")
     public ResponseEntity<List<OrderReceipt>> getOrdersByUser(@RequestBody User user){
         List<OrderReceipt> orderReceipts = orderService.findOrdersByUser(user);
         return new ResponseEntity<>(orderReceipts, HttpStatus.OK);

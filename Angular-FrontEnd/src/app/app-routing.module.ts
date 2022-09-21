@@ -9,6 +9,7 @@ import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { ShoppingCartComponent} from './pages/shopping-cart/shopping-cart.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { OrderHistoryComponent } from './pages/order-history/order-history.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -40,5 +41,6 @@ export const routingComponents = [
   DetailPageComponent,
   ShoppingCartComponent,
   ProfilePageComponent,
-  OrderHistoryComponent
+  OrderHistoryComponent,
+  CheckoutComponent
 ]

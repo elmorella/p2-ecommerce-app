@@ -21,3 +21,24 @@ button{
     max-width:80%; 
     margin-left: 10%;
 }
+.fade.in {
+    opacity: 1;
+  }
+  .modal{
+    font-size: 20px;
+  }
+  .modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    color: #6aac61;
+  }
+  
+  .modal-backdrop .fade .in {
+    opacity: 0.6 !important;
+  }
+  
+  
+  .modal-backdrop.fade {
+      opacity: 0.6 !important;
+  }
