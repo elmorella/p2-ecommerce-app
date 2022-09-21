@@ -2,16 +2,16 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" routerLinkActive="active-link" routerLink="/home">
-        <h3>Spartan Trading LLC</h3>
+        <h1>Spartan Trading LLC</h1>
       </a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/home">Home</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li>
         <a routerLinkActive="active-link" routerLink="/cart">
-          <span class="glyphicon glyphicon-shopping-cart"></span>
+          <span class="glyphicon glyphicon-shopping-cart"></span><span class="badge badge-pill-small badge-light"  style="font-size: 10px;">{{totalItems}}</span>
         </a>
       </li>
     </ul>
@@ -19,7 +19,7 @@
       <li *ngIf="authService.verifyToken(); else loginButton"><a (click)="logout()" routerLink="/login"><span
             class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       <ng-template #loginButton>
-        <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+        <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span>   Login</a></li>
       </ng-template>
     </ul>
   </div>
