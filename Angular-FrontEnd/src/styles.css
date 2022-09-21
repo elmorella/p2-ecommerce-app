@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 html {
-  background: #f2faf1;
+  background: #FFDCC4;
 }
 
 body {
@@ -170,13 +170,16 @@ svg.material-icons:not(:last-child) {
 
 .wrapper {
   padding-top: 50px;
-  background-color: #f2faf1;
+  background-color: #FFDCC4;
 }
 
 /* Remove the navbar's default rounded borders and increase the bottom margin */
 .navbar {
   margin-bottom: 0;
-  border-radius: 0;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 .card {
