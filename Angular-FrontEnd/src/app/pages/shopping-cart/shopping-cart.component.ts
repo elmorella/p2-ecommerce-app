@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from 'src/app/model/item.model';
 import { OrderReceipt } from 'src/app/model/order-receipt.model';
 import { OrderReceiptServiceTsService } from 'src/app/services/order-receipt.service';
+import {AuthService} from 'src/app/services/auth.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,22 +11,28 @@ import { OrderReceiptServiceTsService } from 'src/app/services/order-receipt.ser
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-  shoppingCart: OrderReceipt = new OrderReceipt();
-  subtotal: number = 0;
+  shoppingCart: OrderReceipt = new OrderReceipt()
+  items: Array<Item> = []
+  itemCount: number = 0
+  subtotal: number = 0
   taxPercent: number = .0925
-  taxAmount: number = 0;
-  total: number = 0;
-  constructor(private orderService: OrderReceiptServiceTsService) {
+  taxAmount: number = 0
+  total: number = 0
+  constructor(private orderService: OrderReceiptServiceTsService,
+              private authService: AuthService,
+              private router: Router) {
    }
 
   ngOnInit(): void {
-    console.log('SHOPPING CART')
+    if(!this.authService.verifyToken()){
+      this.router.navigate(['login']);
+    }
     this.shoppingCart = this.orderService.getShoppingCart()
-    console.log(this.shoppingCart.user?.name + "'s shopping cart")
-    console.log(this.shoppingCart.items)
+    this.items = this.shoppingCart.items
 
     for(let item of this.shoppingCart.items){
       this.subtotal += item.price
+      this.itemCount++
     }
 
     this.taxAmount = this.subtotal * this.taxPercent
