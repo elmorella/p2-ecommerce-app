@@ -24,21 +24,26 @@ export class ShoppingCartComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log('SHOPPING CART')
-    this.orderService.addToShoppingCart(    {
-      "id": 6,
-      "name": "2003 Skyridge Holographic",
-      "description": "This card is unique for several reasons as the holographic card was Colorless as opposed to the typical Fire-type.",
-      "stock": 4024,
-      "price": 12000.0,
-      "imageUrl": "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2021/02/Charizard-Cards-Most-Valuable-Pokemon-6.jpg"
-  })
     this.shoppingCart = this.orderService.getShoppingCart()
     this.items = this.shoppingCart.items
+    this.orderService.getCartAmount().subscribe((response) =>{
+      this.itemCount = response;
+    })
 
+    this.calculatePrice();
+  }
+
+  removeItem(item: Item){
+    this.orderService.removeItem(item);
+    this.calculatePrice();
+  }
+
+  calculatePrice(){
+    this.subtotal = 0
+    this.taxAmount = 0
+    this.total = 0
     for(let item of this.shoppingCart.items){
-      this.subtotal += item.price
-      this.itemCount++
+      this.subtotal += item.price * item.inCartQuantity!;
     }
 
     this.taxAmount = this.subtotal * this.taxPercent
