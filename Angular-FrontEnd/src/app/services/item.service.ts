@@ -18,6 +18,6 @@ export class ItemServiceTsService {
   }
 
   public getItemById(id: Number) {
-    return this.http.get(`${this.BASE_URL}/item/` + id);
+    return this.http.get<Item>(`${this.BASE_URL}/item/` + id);
   }
 }

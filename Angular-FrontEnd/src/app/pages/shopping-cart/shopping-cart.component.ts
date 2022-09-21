@@ -18,9 +18,14 @@ export class ShoppingCartComponent implements OnInit {
 }
 ];
 
-  constructor() { }
-
   ngOnInit(): void {
-  }
+    console.log('SHOPPING CART')
+    this.shoppingCart = this.orderService.getShoppingCart()
+    console.log(this.shoppingCart.user?.name + "'s shopping cart")
+    console.log(this.shoppingCart.items)
+
+    for(let item of this.shoppingCart.items){
+      this.subtotal += item.price
+    }
 
 }
