@@ -1,12 +1,12 @@
 
 
-<section class="vh-100" style="background-color: #fdccbc;">
+<section class="vh-100" style="background-color: #C7A58D;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
         <!-- number of items -->
         <p><span class="h2">Shopping Cart </span><span class="h4">(1 item in your cart)</span></p>
-        <div *ngFor="let item of items">
+        <div *ngFor="let item of shoppingCart.items">
         <div class="card mb-4">
             
           <div class="card-body p-4">
@@ -15,7 +15,7 @@
               <div class="col-md-2">
                 <!-- card image -->
                 <img src= "{{item.imageUrl}}"
-                style="width: 64px; height: 100px; object-fit:cover; border-radius: 15px; padding: 10px;">
+                style="width: 56px; height: 100px; object-fit:cover; border-radius: 8px; margin-left: 16px;">
               </div>
               <div class="col-md-2 d-flex justify-content-center">
                 <div>
@@ -50,8 +50,8 @@
           <div class="card-body p-4">
             <div class="float-end">
               <p class="mb-0 me-5 d-flex align-items-center">
-                <span class="small text-muted me-2">Order total:</span> <span
-                  class="lead fw-normal">$799</span>
+                <span class="small text-muted me-2" style="font-size: 18px;">Order total:</span> <span
+                  class="lead fw-normal" style="padding-top: 20px; padding-left: 20px;">$799</span>
               </p>
             </div>
           </div>
