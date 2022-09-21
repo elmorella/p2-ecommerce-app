@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@font-face {
+  font-family: "Trade Gothic";
+  src: url(./assets/fonts/Trade-Gothic-LT.tff);
+}
 .form-signin {
   width: 100%;
   max-width: 330px;

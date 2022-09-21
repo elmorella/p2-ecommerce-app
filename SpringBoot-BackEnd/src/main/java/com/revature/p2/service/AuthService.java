@@ -28,9 +28,9 @@ public class AuthService {
     public AuthCertificate addNewAuth(AuthCertificate authCertificate){
         return  auth.save(authCertificate);
     }
-    public void validate(AuthCertificate certificate){
+    public AuthCertificate validate(AuthCertificate certificate){
         certificate.setValid(true);
-        auth.save(certificate);
+        return auth.save(certificate);
     }
     public AuthCertificate invalidate(AuthCertificate certificate){
         certificate.setValid(false);
