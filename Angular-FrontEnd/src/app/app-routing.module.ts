@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'item/:id', component: DetailPageComponent },
   { path: 'cart', component: ShoppingCartComponent},
   { path: 'profile', component: ProfilePageComponent},
-  { path: 'orderHistory', component: OrderHistoryComponent}
+  { path: 'orderHistory', component: OrderHistoryComponent},
+  { path: 'checkout', component: CheckoutComponent}
   
 ];
 

@@ -7,13 +7,11 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserServiceTsService } from './services/user.service';
 import { AuthService } from './services/auth.service';
-import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    CheckoutComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,
