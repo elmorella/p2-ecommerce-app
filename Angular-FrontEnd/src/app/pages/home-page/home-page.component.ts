@@ -19,5 +19,5 @@ export class HomePageComponent implements OnInit {
     if(!this.authService.verifyToken()){
       this.router.navigate(['login']);
     }
-     }
+  }
 }

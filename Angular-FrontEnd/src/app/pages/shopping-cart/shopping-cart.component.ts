@@ -24,6 +24,9 @@ export class ShoppingCartComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    if(!this.authService.verifyToken()){
+      this.router.navigate(['login']);
+    }
     this.shoppingCart = this.orderService.getShoppingCart()
     this.items = this.shoppingCart.items
 
