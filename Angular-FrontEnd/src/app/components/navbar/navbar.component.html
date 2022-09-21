@@ -19,7 +19,7 @@
       <li *ngIf="authService.verifyToken(); else loginButton"><a (click)="logout()" routerLink="/login"><span
             class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       <ng-template #loginButton>
-        <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
       </ng-template>
     </ul>
   </div>

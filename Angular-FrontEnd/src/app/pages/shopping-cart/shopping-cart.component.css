@@ -1,18 +1,21 @@
-.nameText{
-    font-size:22px;
-}
-
-.priceText{
+.pb-2{
+    font-family: "Trade Gothic Bold";
+    margin-top: 8px;
     font-size: 18px;
 }
-.descriptionText{
-    font-size: 14px;
+
+.mb-0{
+    font-family: "Trade Gothic Bold";
+    font-size: 18px;
+
 }
 
-.col-lg-1{
+.fw-normal{
     font-family: "Trade Gothic Bold";
-    font-size: 20px;
-    border-radius: 20px; 
-    background-color:#2A1707;
-    border-color: #2A1707;
-  }
+    font-size: 18px;
+}
+
+.me-2{
+    font-family: "Trade Gothic Bold";
+    color: black;
+}

@@ -1,0 +1,30 @@
+.col-lg-5{
+    font-family: "Trade Gothic Bold";
+    font-size: 20px;
+    border-radius: 20px; 
+    background-color:#2A1707;
+    border-color: #2A1707;
+    margin-left: 88px;
+    margin-top: 20px;
+}
+
+.form-signin-heading{
+    font-family: "Trade Gothic Bold";
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 32px;
+}
+
+.form-control{
+    font-family: "Trade Gothic Bold";
+}
+
+.checkbox{
+    font-family: "Trade Gothic Bold";
+    width: 100px;
+    text-align: right;
+    transform: scale(1.5);
+    height: 20px;
+    size: 100px;
+    font-size: 12px;
+}
