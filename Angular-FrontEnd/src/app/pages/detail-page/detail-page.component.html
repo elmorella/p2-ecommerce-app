@@ -1,35 +1,36 @@
-<div  class="container-xl">
+<div class="container">
     <div class="card" width-min="1100px;">
-        <div class="row" >
+        <div class="row">
             <div class="col-lg-4">
                 <!-- image go here -->
-                <img width="300px" height="450px" style="width: 300px; height: 450; object-fit:cover; border-radius: 20px; padding: 10px;" src="https://static1.thegamerimages.com/wordpress/wp-content/uploads/2021/02/Charizard-Cards-Most-Valuable-Pokemon-6.jpg" alt="">
+                <img width="300px" height="450px"
+                    style="width: 300px; height: 450; object-fit:cover; border-radius: 20px; padding: 10px;"
+                    src="{{item.imageUrl}}" alt="">
             </div>
             <div class="col-lg-8">
                 <div style="margin-right: 30px;">
-                <br><br>
-                <div class="nameText card">
-                     <p style="color: bisque;">Product name goes here</p>
+                    <br><br>
+                    <div class="nameText card">
+                        <p>{{item.name}}</p>
+                    </div>
+                    <hr>
+                    <div class="card">
+                        <h3 class="descriptionText">{{item.description}}</h3>
+                    </div>
+                    <hr>
+                    <div class="card">
+                        <h2>Price:</h2>
+                        <p class="priceText">{{ item.price| currency}}</p>
+                    </div>
+                    <hr>
+                    <br><br><br><br>
+                    <div class="row">
+                        <button routerLink="/home" class="btn btn-primary btn-lg col-lg-5">Back</button>
+                        <div class="col-lg-1"></div>
+                        <button (click)="addToCart(item.id)" class="btn btn-primary btn-lg col-lg-5">Add to
+                            Cart</button>
+                    </div>
                 </div>
-                <hr>
-                <div class="card">
-                <h2>Price:</h2>
-                <p class="priceText">{{ 100 | currency}}</p>
-                </div>
-                <hr>
-                <div class="card">
-
-                <p class="descriptionText">Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. 
-                </p>
-                </div>
-                <hr>
-                <br><br><br><br>
-                <div class="row">
-                    <button class="btn btn-primary btn-lg col-lg-5" >Back</button>
-                    <div class="col-lg-1"></div>
-                    <button class="btn btn-primary btn-lg col-lg-5" >Add to Cart</button>
-                </div>
-            </div>
             </div>
         </div>
     </div>

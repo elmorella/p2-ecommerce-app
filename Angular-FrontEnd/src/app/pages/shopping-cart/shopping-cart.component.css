@@ -1,0 +1,18 @@
+.nameText{
+    font-size:22px;
+}
+
+.priceText{
+    font-size: 18px;
+}
+.descriptionText{
+    font-size: 14px;
+}
+
+.col-lg-1{
+    font-family: "Trade Gothic Bold";
+    font-size: 20px;
+    border-radius: 20px; 
+    background-color:#2A1707;
+    border-color: #2A1707;
+  }
