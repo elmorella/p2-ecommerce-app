@@ -5,10 +5,14 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component'
 import { ProductPageComponent } from './components/body/product-page.component'
+import { DetailPageComponent } from './pages/detail-page/detail-page.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'testingDetail', component: DetailPageComponent },
+  { path: 'testingCart', component: ShoppingCartComponent },
   {
     path: 'home', 
     component: HomePageComponent,
@@ -18,6 +22,7 @@ const routes: Routes = [
       { path: 'products', component: ProductPageComponent }
     ]
   }
+  
 ];
 
 @NgModule({
@@ -30,5 +35,7 @@ export const routingComponents = [
                                   LoginComponent,
                                   NavbarComponent,
                                   HeaderComponent,
-                                  ProductPageComponent
+                                  ProductPageComponent,
+                                  DetailPageComponent,
+                                  ShoppingCartComponent
                                 ]
