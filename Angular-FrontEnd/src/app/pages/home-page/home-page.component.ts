@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthCertificate } from 'src/app/model/authCertificate.model';
+import { AuthCertificate } from 'src/app/model/auth-certificate.model';
 import { User } from 'src/app/model/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -27,6 +27,11 @@ export class HomePageComponent implements OnInit {
     // console.log('Authorization token: ' + certificate.authToken);
     // console.log('home page. Username: ' + certificate.user?.username + " isAuthorized: " + certificate.isAuthorized)
     this.user = certificate.user!;
+    console.log('HOME PAGE COMPONENT')
+    console.log(certificate.token)
+    console.log(certificate.user?.name)
+    console.log('Token is valid: ' + certificate.valid)
+    
    }
 
   ngOnInit(): void {

@@ -36,8 +36,8 @@ public class UserService{
                 certificate.setValid(true);
                 certificate.setToken(token);
                 certificate.setUser(user);
+                certificate = auth.addNewAuth(certificate);
             }
-
             return certificate;
         } else{
             throw new UserNotFoundException("User not found");

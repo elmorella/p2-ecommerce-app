@@ -14,7 +14,7 @@ import java.util.List;
 public class OrderReceipt implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="order_id", nullable = false, updatable = false)
     private int id;
     @ManyToOne
