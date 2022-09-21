@@ -15,7 +15,7 @@
           <h4>{{item.description}}</h4>
         </div>
         <div class="panel-footer">
-          <h3>{{item.price}}</h3>
+          <h3>{{item.price|currency}}</h3>
         </div>
         <div>
           <button (click)="addToCart(item.id)" class="btn-lg btn-primary">Add to cart</button>
