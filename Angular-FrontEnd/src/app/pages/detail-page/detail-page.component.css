@@ -1,10 +1,39 @@
 .nameText{
     font-size:22px;
+    font-family: "Trade Gothic Bold";
 }
 
 .priceText{
     font-size: 18px;
+    font-family: "Trade Gothic Bold";
 }
 .descriptionText{
     font-size: 14px;
+    font-family: "Trade Gothic Bold";
+}
+.col-lg-8{
+    padding-left: 20px;
+    font-family: "Trade Gothic Bold";
+}
+.card{
+    background-color: #93000A;
+    border: 10px;
+    border-radius: 20px;
+    margin-right: 40px;
+}
+
+.col-lg-5{
+    font-family: "Trade Gothic Bold";
+    font-size: 20px;
+    border-radius: 20px; 
+    background-color:#2A1707;
+    border-color: #2A1707;
+}
+
+.container-x1{
+    color: black;
+}
+
+.div{
+    background-color: black;
 }

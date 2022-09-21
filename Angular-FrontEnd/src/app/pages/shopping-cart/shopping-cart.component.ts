@@ -24,9 +24,15 @@ export class ShoppingCartComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    if(!this.authService.verifyToken()){
-      this.router.navigate(['login']);
-    }
+    console.log('SHOPPING CART')
+    this.orderService.addToShoppingCart(    {
+      "id": 6,
+      "name": "2003 Skyridge Holographic",
+      "description": "This card is unique for several reasons as the holographic card was Colorless as opposed to the typical Fire-type.",
+      "stock": 4024,
+      "price": 12000.0,
+      "imageUrl": "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2021/02/Charizard-Cards-Most-Valuable-Pokemon-6.jpg"
+  })
     this.shoppingCart = this.orderService.getShoppingCart()
     this.items = this.shoppingCart.items
 
