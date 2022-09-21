@@ -26,11 +26,16 @@
                 <div class="col-md-2 d-flex justify-content-center">
                 </div>
                 <div class="col-md-2 d-flex justify-content-center">
-                </div>
-                <div class="col-md-2 d-flex justify-content-center">
                   <div>
                     <p class="small text-muted mb-4 pb-2">Stock #</p>
                     <p class="lead fw-normal mb-0">{{item.stock}}</p>
+                  </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <p class="small text-muted mb-4 pb-2">Your Quantity #</p>
+                    <p class="lead fw-normal mb-0">{{item.inCartQuantity}}   <a (click)="removeItem(item)"><span
+                      class="glyphicon glyphicon-trash"></span></a></p>
                   </div>
                 </div>
                 <div class="col-md-2 d-flex justify-content-center">
