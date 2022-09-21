@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component'
 import { ProductPageComponent } from './components/body/product-page.component'
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { ShoppingCartComponent} from './pages/shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'products', component: ProductPageComponent },
   { path: 'item/:id', component: DetailPageComponent },
-  { path: 'cart', component: ShoppingCartComponent}
+  { path: 'cart', component: ShoppingCartComponent},
+  { path: 'checkout', component: CheckoutComponent}
   
 ];
 
@@ -34,5 +36,6 @@ export const routingComponents = [
   HeaderComponent,
   ProductPageComponent,
   DetailPageComponent,
-  ShoppingCartComponent
+  ShoppingCartComponent,
+  CheckoutComponent
 ]
