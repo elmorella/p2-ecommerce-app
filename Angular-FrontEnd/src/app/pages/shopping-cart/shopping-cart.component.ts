@@ -26,10 +26,24 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit(): void {
     this.shoppingCart = this.orderService.getShoppingCart()
     this.items = this.shoppingCart.items
+    this.orderService.getCartAmount().subscribe((response) =>{
+      this.itemCount = response;
+    })
 
+    this.calculatePrice();
+  }
+
+  removeItem(item: Item){
+    this.orderService.removeItem(item);
+    this.calculatePrice();
+  }
+
+  calculatePrice(){
+    this.subtotal = 0
+    this.taxAmount = 0
+    this.total = 0
     for(let item of this.shoppingCart.items){
-      this.subtotal += item.price
-      this.itemCount++
+      this.subtotal += item.price * item.inCartQuantity!;
     }
 
     this.taxAmount = this.subtotal * this.taxPercent
