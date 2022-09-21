@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Item } from '../model/item.model';
@@ -11,8 +12,9 @@ export class OrderReceiptServiceTsService {
 
   private orderList: OrderReceipt = new OrderReceipt()
   public productAmount = new BehaviorSubject<any>([]);
+  BASE_URL = 'http://localhost:8080/order'
   private qIncrease = false;
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   addToShoppingCart(item: Item){
     this.orderList.items.map((orderItem: Item, index: number)=>{
@@ -66,5 +68,15 @@ export class OrderReceiptServiceTsService {
       }
     })
     this.productAmount.next(this.getQuantity());
+  }
+  
+  getUserRecipts(user: User){
+    return this.http.post<OrderReceipt[]>(`${this.BASE_URL}/all/user`, user);
+  }
+
+  addRecipt(receipt: OrderReceipt){
+    let newOrder = this.http.post(`${this.BASE_URL}/add`, receipt);
+    this.clearShoppingCart();
+    return newOrder;
   }
 }

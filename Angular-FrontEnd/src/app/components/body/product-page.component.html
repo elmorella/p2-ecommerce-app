@@ -16,8 +16,18 @@
           </div>
           <div class="panel-footer">
             <h3>{{item.price|currency}}</h3>
-            <button (click)="addToCart(item.id)" class="btn btn-primary btn-lg col-lg-5">Add to cart</button>
+            <button (click)="addToCart(item.id)" class="btn btn-primary btn-lg col-lg-5" data-toggle="modal" data-target="#confirm">Add to cart</button>
+            
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="confirm">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="mySmallModalLabel">Added to cart</span>
         </div>
       </div>
     </div>
