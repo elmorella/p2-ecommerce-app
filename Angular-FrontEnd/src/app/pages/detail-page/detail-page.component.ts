@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ItemServiceTsService } from 'src/app/services/item.service';
 import { Item } from 'src/app/model/item.model';
-import { OrderReceiptServiceTsService } from 'src/app/services/order-receipt.service'
+import { AuthService } from 'src/app/services/auth.service';
+import { OrderReceiptServiceTsService } from 'src/app/services/order-receipt.service';
 import { OrderReceipt } from 'src/app/model/order-receipt.model';
 
 @Component({
@@ -14,11 +14,18 @@ import { OrderReceipt } from 'src/app/model/order-receipt.model';
 export class DetailPageComponent implements OnInit {
   item: Item = new Item();
 
-  constructor(private activatedRoute: ActivatedRoute, 
-              private itemService: ItemServiceTsService,
-              private orderService: OrderReceiptServiceTsService) { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private itemService: ItemServiceTsService, 
+              private authService: AuthService, 
+              private router: Router,
+              private orderService: OrderReceiptServiceTsService) {
+    
+   }
 
   ngOnInit(): void {
+    if(!this.authService.verifyToken()){
+      this.router.navigate(['login']);
+    }
     let id = this.activatedRoute.snapshot.paramMap.get('id')!;
     console.log('id: ' + id)
     this.itemService.getItemById(parseInt(id)).subscribe(
@@ -27,7 +34,6 @@ export class DetailPageComponent implements OnInit {
       }
     )
   }
-
   addToCart(id?: Number){
     console.log(id)
     this.itemService.getItemById(id!).subscribe(
