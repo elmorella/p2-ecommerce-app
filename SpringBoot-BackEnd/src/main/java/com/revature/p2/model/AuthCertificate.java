@@ -13,7 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class AuthCertificate implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "auth_id", nullable = false, updatable = false)
     private int id;
     private String token;

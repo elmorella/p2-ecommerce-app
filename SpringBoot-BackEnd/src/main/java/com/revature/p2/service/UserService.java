@@ -39,7 +39,6 @@ public class UserService{
             } else {
                 certificate = auth.validate(certificate);
             }
-
             return certificate;
         } else{
             throw new UserNotFoundException("User not found");

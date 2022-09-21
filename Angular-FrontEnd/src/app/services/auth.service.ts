@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Credentials } from '../model/credentials.model';
-import { AuthCertificate } from '../model/authCertificate.model';
+import { AuthCertificate } from '../model/auth-certificate.model';
 
 @Injectable({
   providedIn: 'root'

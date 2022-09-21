@@ -1,1 +1,8 @@
-<p>shopping-cart works!</p>
+<h1>shopping-cart works!</h1>
+<h1>{{shoppingCart.user?.name}}</h1>
+<div *ngFor="let item of shoppingCart.items">
+    {{item.name}} {{item.price|currency}}
+</div>
+<h3>Subtotal: {{subtotal|currency}}</h3>
+<h4>Tax Amount (9.25%): {{taxAmount|currency}}</h4>
+<h2>Total: {{total|currency}}</h2>

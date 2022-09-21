@@ -30,6 +30,7 @@ public class ItemController {
 //        Item item = itemService.findItemByName(name);
 //        return new ResponseEntity<>(item, HttpStatus.OK);
 //    }
+
     @PostMapping("/add")
     public ResponseEntity<Item> addItem(@RequestBody Item item){
         Item newItem = itemService.addItem(item);

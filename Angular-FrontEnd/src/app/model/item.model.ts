@@ -1,9 +1,9 @@
 
 export class Item {
-        id?: Number
+        id?: number
         name?: String
         description?: String
-        stock?: Number
-        price?: Number
+        stock?: number
+        price: number = 0;
         imageUrl?: String
 }

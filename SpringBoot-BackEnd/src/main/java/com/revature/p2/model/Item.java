@@ -14,6 +14,7 @@ public class Item implements Serializable {
 
     @Id
     @Column(name = "item_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String description;
