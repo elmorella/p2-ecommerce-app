@@ -17,7 +17,7 @@ export class ItemServiceTsService {
     return this.http.get<any[]>(`${this.BASE_URL}/item/all`);
   }
 
-  public getItemById(id: Number) {
+  public getItemById(id: Number) : Observable<Item>{
     return this.http.get<Item>(`${this.BASE_URL}/item/` + id);
   }
 }

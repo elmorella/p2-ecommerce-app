@@ -11,12 +11,13 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HomePageComponent implements OnInit {
   user: User;
   constructor(private authService: AuthService, private router: Router) {
-    if(!authService.verifyToken()){
-      this.router.navigate(['login']);
-    }
+  
     this.user = authService.getAuthCert().user!;
    }
 
   ngOnInit(): void {
+    if(!this.authService.verifyToken()){
+      this.router.navigate(['login']);
+    }
      }
 }
