@@ -1,11 +1,14 @@
+
+<app-header></app-header>
 <div class="wrapper">
   <form #loginForm="ngForm" class="form-signin" (submit)="validateCredentials()">
     <h2 class="form-signin-heading">Please Login</h2>
     <input type="text" class="form-control" name="username" placeholder="Username"  autofocus="" [(ngModel)]="credentials.username"/>
     <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password"/>
-    <label class="checkbox">
+    <label class="checkbox" style="margin-left: 24px;">
       <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" ngModel> Remember me
     </label>
-    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" />
+    <!-- <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" /> -->
+    <button type="submit" class="btn btn-primary btn-lg col-lg-5" value="Login">Login</button>
   </form>
 </div>
