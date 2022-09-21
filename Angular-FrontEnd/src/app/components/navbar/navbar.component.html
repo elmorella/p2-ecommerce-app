@@ -1,26 +1,22 @@
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" routerLinkActive="active-link" routerLink="/home">
-        <h1>Spartan Trading LLC</h1>
+      <a class="navbar-brand" routerLinkActive="active-link" routerLink="/home" style="scale: 1.5;">
+        <h3>Spartan Trading LLC</h3>
       </a>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a routerLink="/home">Home</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" style="display: inline; scale: 1.45;">
+      <li class="active-link"><a routerLink="/home">Home</a></li>
+      <li *ngIf="authService.verifyToken();" class="active-link"><a routerLink="/profile">Your Account</a></li>
+      <li *ngIf="authService.verifyToken();" class="active-link"><a routerLink="/orderHistory">Order History</a></li>
+      <li *ngIf="authService.verifyToken(); else loginButton"><a (click)="logout()" routerLink="/login"><span
+            class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <ng-template #loginButton>
+        <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ng-template>
       <li>
         <a routerLinkActive="active-link" routerLink="/cart">
           <span class="glyphicon glyphicon-shopping-cart"></span><span class="badge badge-pill-small badge-light"  style="font-size: 10px;">{{totalItems}}</span>
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li *ngIf="authService.verifyToken(); else loginButton"><a (click)="logout()" routerLink="/login"><span
-            class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-      <ng-template #loginButton>
-        <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span>   Login</a></li>
-      </ng-template>
-    </ul>
-  </div>
 </nav>

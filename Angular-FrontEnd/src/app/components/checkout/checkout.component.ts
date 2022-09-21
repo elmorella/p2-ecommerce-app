@@ -14,6 +14,12 @@ import { OrderReceiptServiceTsService } from 'src/app/services/order-receipt.ser
 export class CheckoutComponent implements OnInit {
   shoppingCart: OrderReceipt =  new OrderReceipt();
   user: User = new User();
+  totalItems: number = 0;
+  itemCount: number = 0
+  subtotal: number = 0
+  taxPercent: number = .0925
+  taxAmount: number = 0
+  total: number = 0
 
   constructor(private authService: AuthService,
               private orderService: OrderReceiptServiceTsService,
@@ -23,8 +29,22 @@ export class CheckoutComponent implements OnInit {
     if(!this.authService.verifyToken()){
       this.router.navigate(['login']);
     }
+    this.orderService.getCartAmount().subscribe((response) =>{
+      this.totalItems = response;
+    })
     this.shoppingCart = this.orderService.getShoppingCart();
     this.user = this.shoppingCart.user!;
+    this.calculatePrice();
   }
+  calculatePrice(){
+    this.subtotal = 0
+    this.taxAmount = 0
+    this.total = 0
+    for(let item of this.shoppingCart.items){
+      this.subtotal += item.price * item.inCartQuantity!;
+    }
 
+    this.taxAmount = this.subtotal * this.taxPercent
+    this.total = this.subtotal + this.taxAmount
+  }
 }

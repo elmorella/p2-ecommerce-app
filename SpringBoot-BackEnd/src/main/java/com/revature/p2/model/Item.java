@@ -19,6 +19,7 @@ public class Item implements Serializable {
     private String name;
     private String description;
     private int stock;
+    private int inCartQuantity;
     private float price;
     private String imageUrl;
 

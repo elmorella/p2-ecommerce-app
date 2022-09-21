@@ -1,0 +1,50 @@
+<!-- <section class="vh-100" style="background-color: #fdccbc;"> -->
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+              <!-- number of items -->
+              <p class="h2" style="margin-bottom: 20px;">Your Orders:</p>
+              <div *ngFor="let item of items">
+                <div class="card mb-4">
+      
+                  <div class="card-body p-4">
+      
+                    <div class="row align-items-center">
+                      <div class="col-md-2 d-flex justify-content-center">
+                        <div>
+                        <p class="small text-muted mb-4 pb-2">OrderNumber</p>
+                        <p class="lead fw-normal mb-0">#123123123</p>
+                    </div>
+                      </div>
+                    
+                      <div class="col-md-2 d-flex justify-content-center">
+                        <div>
+                          <!-- Card name -->
+                          <p class="small text-muted mb-4 pb-2">Date</p>
+                          <p class="lead fw-normal mb-0">9-21-22</p>
+                        </div>
+                      </div>
+                      <div class="col-md-2 d-flex justify-content-center">
+                    </div>
+                      
+                      <div class="col-md-2 d-flex justify-content-center">
+                        <div>
+                          <p class="small text-muted mb-4 pb-2">Number of Cards</p>
+                          <p class="lead fw-normal mb-0">{{items.length}}</p>
+                        </div>
+                      </div>
+                      <div class="col-md-2 d-flex justify-content-center">
+                    </div>
+                      <div class="col-md-2 d-flex justify-content-center">
+                        <div>
+                          <p class="small text-muted mb-4 pb-2">Total Price</p>
+                          <p class="lead fw-normal mb-0">{{item.price|currency}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/header/header.component'
 import { ProductPageComponent } from './components/body/product-page.component'
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { ShoppingCartComponent} from './pages/shopping-cart/shopping-cart.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { OrderHistoryComponent } from './pages/order-history/order-history.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'products', component: ProductPageComponent },
   { path: 'item/:id', component: DetailPageComponent },
   { path: 'cart', component: ShoppingCartComponent},
+  { path: 'profile', component: ProfilePageComponent},
+  { path: 'orderHistory', component: OrderHistoryComponent},
   { path: 'checkout', component: CheckoutComponent}
   
 ];
@@ -37,5 +41,7 @@ export const routingComponents = [
   ProductPageComponent,
   DetailPageComponent,
   ShoppingCartComponent,
+  ProfilePageComponent,
+  OrderHistoryComponent,
   CheckoutComponent
 ]
