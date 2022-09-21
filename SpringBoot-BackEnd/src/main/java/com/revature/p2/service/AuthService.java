@@ -4,7 +4,6 @@ import com.revature.p2.exception.UserNotFoundException;
 import com.revature.p2.model.AuthCertificate;
 import com.revature.p2.model.User;
 import com.revature.p2.repo.AuthCertification;
-import com.revature.p2.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,9 +28,13 @@ public class AuthService {
     public AuthCertificate addNewAuth(AuthCertificate authCertificate){
         return  auth.save(authCertificate);
     }
-    public void invalidate(AuthCertificate certificate){
+    public AuthCertificate validate(AuthCertificate certificate){
+        certificate.setValid(true);
+        return auth.save(certificate);
+    }
+    public AuthCertificate invalidate(AuthCertificate certificate){
         certificate.setValid(false);
-        auth.save(certificate);
+        return auth.save(certificate);
     }
 
 }

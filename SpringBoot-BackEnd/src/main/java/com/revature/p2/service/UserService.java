@@ -29,7 +29,6 @@ public class UserService{
         User user = findUserByUsername(username);
         if(user.getPassword().contentEquals(password)){
             AuthCertificate certificate = auth.getCertByUser(user);
-
             if(certificate.getToken() == null){
                 UUID uuid = UUID.randomUUID();
                 String token = uuid.toString();
@@ -37,6 +36,8 @@ public class UserService{
                 certificate.setToken(token);
                 certificate.setUser(user);
                 certificate = auth.addNewAuth(certificate);
+            } else {
+                certificate = auth.validate(certificate);
             }
             return certificate;
         } else{

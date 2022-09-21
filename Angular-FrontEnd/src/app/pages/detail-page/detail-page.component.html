@@ -1,7 +1,36 @@
-<h1>Item details</h1>
-<img src="{{item.imageUrl}}">
-<h1>{{item.name}}</h1>
-<h2>ID: {{item.id}}</h2>
-<h3>{{item.description}}</h3>
-<h4>Stock# {{item.stock}}</h4>
-<h1>{{item.price|currency}}</h1>
+<div  class="container-xl">
+    <div class="card" width-min="1100px;">
+        <div class="row" >
+            <div class="col-lg-4">
+                <!-- image go here -->
+                <img width="300px" height="450px" style="width: 300px; height: 450; object-fit:cover; border-radius: 20px; padding: 10px;" src="https://static1.thegamerimages.com/wordpress/wp-content/uploads/2021/02/Charizard-Cards-Most-Valuable-Pokemon-6.jpg" alt="">
+            </div>
+            <div class="col-lg-8">
+                <div style="margin-right: 30px;">
+                <br><br>
+                <div class="nameText card">
+                     <p style="color: bisque;">Product name goes here</p>
+                </div>
+                <hr>
+                <div class="card">
+                <h2>Price:</h2>
+                <p class="priceText">{{ 100 | currency}}</p>
+                </div>
+                <hr>
+                <div class="card">
+
+                <p class="descriptionText">Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. Description here. 
+                </p>
+                </div>
+                <hr>
+                <br><br><br><br>
+                <div class="row">
+                    <button class="btn btn-primary btn-lg col-lg-5" >Back</button>
+                    <div class="col-lg-1"></div>
+                    <button class="btn btn-primary btn-lg col-lg-5" >Add to Cart</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

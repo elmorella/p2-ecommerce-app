@@ -27,5 +27,14 @@ export class AuthService {
       return this.authCert;
   }
 
-  public verifyToken(){}
+  public verifyToken(){
+    return this.authCert.valid;
+  }
+
+  public logout(){
+    this.http.put<AuthCertificate>(`${this.BASE_URL}/auth/invalidate`, this.authCert).subscribe((response: AuthCertificate) =>{
+      this.authCert = response;
+    });
+    
+  }
 }

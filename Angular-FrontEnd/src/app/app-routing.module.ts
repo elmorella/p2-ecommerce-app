@@ -11,12 +11,15 @@ import { ShoppingCartComponent} from './pages/shopping-cart/shopping-cart.compon
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'testingDetail', component: DetailPageComponent },
+  { path: 'testingCart', component: ShoppingCartComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'products', component: ProductPageComponent },
   { path: 'item/:id', component: DetailPageComponent },
   { path: 'cart', component: ShoppingCartComponent}
+  
 ];
 
 @NgModule({
