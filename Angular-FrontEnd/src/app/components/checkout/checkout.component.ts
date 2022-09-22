@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { InvokeFunctionExpr } from '@angular/compiler';
 import { MyAddress } from 'src/app/model/my-address.model';
 import { UserServiceTsService } from 'src/app/services/user.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-checkout',
@@ -27,6 +28,7 @@ export class CheckoutComponent implements OnInit {
   taxAmount: number = 0
   total: number = 0
   saveAddress: boolean = false;
+
 
   constructor(private authService: AuthService,
               private orderService: OrderReceiptServiceTsService,
@@ -65,10 +67,11 @@ export class CheckoutComponent implements OnInit {
       this.userService.updateUser(this.user);
     }
     this.shoppingCart.orderDate = new Date();
-    console.log(this.shoppingCart);
     this.shoppingCart.userId = this.authService.getAuthCert().user?.id;
     console.log(this.shoppingCart);
-    this.orderService.addRecipt(this.shoppingCart);
+    
+    
+    this.orderService.addRecipt(JSON.stringify(this.shoppingCart));
     
     this.orderService.clearShoppingCart();
     this.router.navigate(['home']);

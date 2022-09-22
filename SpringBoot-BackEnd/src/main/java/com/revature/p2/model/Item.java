@@ -1,5 +1,6 @@
 package com.revature.p2.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,10 +16,11 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "orders"})
 public class Item implements Serializable {
 
     @Id
-    @Column(name = "item_id", nullable = false)
+    @Column(name = "item_id", nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
@@ -28,6 +30,6 @@ public class Item implements Serializable {
     private float price;
     private String imageUrl;
 
-    @ManyToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "items", cascade = CascadeType.MERGE)
     private Set<OrderReceipt> orders = new HashSet<>();
 }

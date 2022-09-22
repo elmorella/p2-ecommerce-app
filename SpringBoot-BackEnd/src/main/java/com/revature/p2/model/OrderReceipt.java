@@ -26,14 +26,22 @@ public class OrderReceipt implements Serializable {
     private Date orderDate;
     private int userId;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "order_items",
             joinColumns = @JoinColumn(name = "order_id", nullable = false,updatable = false ),
             inverseJoinColumns = @JoinColumn(name = "item_id", nullable = false,updatable = false)
     )
-    private Set<Item> item = new HashSet<>();
+    private Set<Item> items = new HashSet<>();
 
 
-
+    @Override
+    public String toString() {
+        return "OrderReceipt{" +
+                "id=" + id +
+                ", orderDate=" + orderDate +
+                ", userId=" + userId +
+                ", item=" + items +
+                '}';
+    }
 }

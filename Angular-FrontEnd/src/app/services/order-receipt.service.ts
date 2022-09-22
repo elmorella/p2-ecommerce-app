@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Item } from '../model/item.model';
@@ -14,6 +14,7 @@ export class OrderReceiptServiceTsService {
   public productAmount = new BehaviorSubject<any>([]);
   BASE_URL = 'http://localhost:8080/order'
   private qIncrease = false;
+  private header = new HttpHeaders({ 'content-type': 'application/json' });
   constructor(private http: HttpClient) {}
 
   addToShoppingCart(item: Item){
@@ -70,7 +71,8 @@ export class OrderReceiptServiceTsService {
   getUserRecipts(userId: number){
     return this.http.get<OrderReceipt[]>(`${this.BASE_URL}/all/` + userId);
   }
-  addRecipt(receipt: OrderReceipt){
-    this.http.post(`${this.BASE_URL}/add`, receipt).subscribe();
+  addRecipt(receipt: any){
+    console.log(receipt);
+    this.http.post(`${this.BASE_URL}/add`, receipt,{ headers: this.header }).subscribe();
   }
 }

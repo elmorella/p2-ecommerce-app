@@ -19,7 +19,9 @@ export class OrderHistoryComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
+    if(!this.authService.verifyToken()){
+      this.router.navigate(['login']);
+    }
   this.orderService.getUserRecipts(this.authService.getAuthCert().user!.id!).subscribe((orders) =>{
     this.orders = orders;
   })
