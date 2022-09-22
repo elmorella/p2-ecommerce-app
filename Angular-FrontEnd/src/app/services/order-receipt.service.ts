@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Item } from '../model/item.model';
 import { OrderReceipt } from '../model/order-receipt.model';
 import { User } from '../model/user.model'
@@ -50,12 +50,9 @@ export class OrderReceiptServiceTsService {
 
   clearShoppingCart(){
     this.orderList = new OrderReceipt();
+    this.productAmount.next(this.getQuantity());
   }
 
-  shoppingCartInit(user: User) {
-    this.orderList.user = user;
-    return this.orderList;
-  }
 
   removeItem(item: Item){
     this.orderList.items.map((orderItem: Item, index: number)=>{
@@ -70,13 +67,10 @@ export class OrderReceiptServiceTsService {
     this.productAmount.next(this.getQuantity());
   }
   
-  getUserRecipts(user: User){
-    return this.http.post<OrderReceipt[]>(`${this.BASE_URL}/all/user`, user);
+  getUserRecipts(userId: number){
+    return this.http.get<OrderReceipt[]>(`${this.BASE_URL}/all/` + userId);
   }
-
   addRecipt(receipt: OrderReceipt){
-    let newOrder = this.http.post(`${this.BASE_URL}/add`, receipt);
-    this.clearShoppingCart();
-    return newOrder;
+    this.http.post(`${this.BASE_URL}/add`, receipt).subscribe();
   }
 }

@@ -14,14 +14,17 @@ import java.util.List;
 public class User implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false, updatable = false)
     private int id;
     private String name;
     private String username;
     private String email;
     private String password;
-    @OneToMany(mappedBy = "id", cascade = CascadeType.REMOVE)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private MyAddress myAddress;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userId", cascade = CascadeType.REMOVE)
     private List<OrderReceipt> orderReceipts;
 
     public User(String name, String username, String email, String password, List<OrderReceipt> orderReceipts) {

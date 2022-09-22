@@ -5,6 +5,10 @@ import { AuthCertificate } from 'src/app/model/auth-certificate.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { OrderReceiptServiceTsService } from 'src/app/services/order-receipt.service';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { InvokeFunctionExpr } from '@angular/compiler';
+import { MyAddress } from 'src/app/model/my-address.model';
+import { UserServiceTsService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-checkout',
@@ -12,17 +16,21 @@ import { OrderReceiptServiceTsService } from 'src/app/services/order-receipt.ser
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  public lastOrder = new Observable;
   shoppingCart: OrderReceipt =  new OrderReceipt();
   user: User = new User();
+  myAddress: MyAddress = new MyAddress();
   totalItems: number = 0;
   itemCount: number = 0
   subtotal: number = 0
   taxPercent: number = .0925
   taxAmount: number = 0
   total: number = 0
+  saveAddress: boolean = false;
 
   constructor(private authService: AuthService,
               private orderService: OrderReceiptServiceTsService,
+              private userService: UserServiceTsService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -33,7 +41,10 @@ export class CheckoutComponent implements OnInit {
       this.totalItems = response;
     })
     this.shoppingCart = this.orderService.getShoppingCart();
-    this.user = this.shoppingCart.user!;
+    this.user = this.authService.getAuthCert().user!;
+    if(!this.user.myAddress === undefined){
+      this.myAddress = this.user.myAddress!;
+    }
     this.calculatePrice();
   }
   calculatePrice(){
@@ -46,5 +57,20 @@ export class CheckoutComponent implements OnInit {
 
     this.taxAmount = this.subtotal * this.taxPercent
     this.total = this.subtotal + this.taxAmount
+  }
+
+  submitPurchase(){
+    if(this.saveAddress){
+      this.user.myAddress = this.myAddress;
+      this.userService.updateUser(this.user);
+    }
+    this.shoppingCart.orderDate = new Date();
+    console.log(this.shoppingCart);
+    this.shoppingCart.userId = this.authService.getAuthCert().user?.id;
+    console.log(this.shoppingCart);
+    this.orderService.addRecipt(this.shoppingCart);
+    
+    this.orderService.clearShoppingCart();
+    this.router.navigate(['home']);
   }
 }

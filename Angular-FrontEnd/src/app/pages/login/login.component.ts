@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   public validateCredentials() {
 
     //let certificate: AuthCertificate = new AuthCertificate();
-
+    console.log(this.credentials);
     this.authService.doLoginAttempt(this.credentials).subscribe((response: AuthCertificate) => {
       let certificate: AuthCertificate = response;
       console.log(response)

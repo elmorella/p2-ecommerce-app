@@ -4,7 +4,7 @@
             <div class="col">
               <!-- number of items -->
               <p class="h2" style="margin-bottom: 20px;">Your Orders:</p>
-              <div *ngFor="let item of items">
+              <div *ngFor="let order of orders">
                 <div class="card mb-4">
       
                   <div class="card-body p-4">
@@ -13,7 +13,7 @@
                       <div class="col-md-2 d-flex justify-content-center">
                         <div>
                         <p class="small text-muted mb-4 pb-2">OrderNumber</p>
-                        <p class="lead fw-normal mb-0">#123123123</p>
+                        <p class="lead fw-normal mb-0">{{order.id}}</p>
                     </div>
                       </div>
                     
@@ -21,7 +21,7 @@
                         <div>
                           <!-- Card name -->
                           <p class="small text-muted mb-4 pb-2">Date</p>
-                          <p class="lead fw-normal mb-0">9-21-22</p>
+                          <p class="lead fw-normal mb-0">{{order.orderDate}}</p>
                         </div>
                       </div>
                       <div class="col-md-2 d-flex justify-content-center">
@@ -30,7 +30,7 @@
                       <div class="col-md-2 d-flex justify-content-center">
                         <div>
                           <p class="small text-muted mb-4 pb-2">Number of Cards</p>
-                          <p class="lead fw-normal mb-0">{{items.length}}</p>
+                          <p class="lead fw-normal mb-0">{{getItemQuantity(order)}}</p>
                         </div>
                       </div>
                       <div class="col-md-2 d-flex justify-content-center">
@@ -38,7 +38,7 @@
                       <div class="col-md-2 d-flex justify-content-center">
                         <div>
                           <p class="small text-muted mb-4 pb-2">Total Price</p>
-                          <p class="lead fw-normal mb-0">{{item.price|currency}}</p>
+                          <p class="lead fw-normal mb-0">{{calculatePrice(order)|currency}}</p>
                         </div>
                       </div>
                     </div>

@@ -24,9 +24,11 @@ public class UserService{
     }
     public User addUser(User user){return userRepo.save(user);}
     public List<User> findAllUsers(){return userRepo.findAll();}
-    public User updateUser(User user){return userRepo.save(user);}
+    public User updateUser(User user){
+        return userRepo.save(user);}
     public AuthCertificate validateUser(String username, String password){
         User user = findUserByUsername(username);
+        System.out.println(user);
         if(user.getPassword().contentEquals(password)){
             AuthCertificate certificate = auth.getCertByUser(user);
             if(certificate.getToken() == null){

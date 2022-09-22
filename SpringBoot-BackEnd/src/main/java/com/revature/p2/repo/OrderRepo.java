@@ -11,6 +11,7 @@ import java.util.Optional;
 @Repository
 public interface OrderRepo extends JpaRepository<OrderReceipt, Integer> {
     Optional<OrderReceipt> findOrderById(int id);
-    Optional<List<OrderReceipt>> findOrdersByUser(User user);
+    void addOrderItemsToTableOrderItems(OrderReceipt orderReceipt);
+    Optional<List<OrderReceipt>> findOrdersByUserId(int userId);
     void deleteOrderById(int id);
 }

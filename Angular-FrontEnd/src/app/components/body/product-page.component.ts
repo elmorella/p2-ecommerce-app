@@ -20,7 +20,6 @@ export class ProductPageComponent implements OnInit {
   constructor(private auth: AuthService, private itemService: ItemServiceTsService, 
     private orderService : OrderReceiptServiceTsService) { 
     this.user = auth.getAuthCert().user!
-    orderService.shoppingCartInit(this.user)
   }
 
   ngOnInit(): void {
@@ -34,12 +33,7 @@ export class ProductPageComponent implements OnInit {
     console.log(id)
     this.itemService.getItemById(id!).subscribe(
       (item: Item) => {
-        console.log(item.name)
         this.orderService.addToShoppingCart(item)
-        let cart: OrderReceipt = this.orderService.getShoppingCart()
-        console.log(cart.user?.name)
-        console.log(cart.items.length)
-        console.log(cart.items[0].description)
       }
     )
   }

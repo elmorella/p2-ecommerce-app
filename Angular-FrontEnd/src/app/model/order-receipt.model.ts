@@ -3,6 +3,8 @@ import { User } from "./user.model";
 
 export class OrderReceipt {
     id?: number
-    user?: User
+    // user?: User
+    userId?: number
+    orderDate?: Date
     items: Array<Item> = [];
 }
