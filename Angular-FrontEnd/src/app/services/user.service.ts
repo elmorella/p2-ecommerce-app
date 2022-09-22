@@ -26,7 +26,8 @@ export class UserServiceTsService {
   }
 
   public updateUser(user: User) {
-    return this.http.put(`${this.BASE_URL}/user/update`, user);
+    console.log("in Update")
+    return this.http.put<User>(`${this.BASE_URL}/user/update`, user);
   }
 
   public deleteUser(id: Number) {

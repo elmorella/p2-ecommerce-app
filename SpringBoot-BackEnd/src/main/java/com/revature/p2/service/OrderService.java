@@ -23,9 +23,9 @@ public class OrderService {
         return orderRepo.findOrderById(id)
                 .orElseThrow(() -> new OrderNotFoundException("Order with id:" + id + ", not found"));
     }
-    public List<OrderReceipt> findOrdersByUser(User user){
-        return orderRepo.findOrdersByUser(user)
-                .orElseThrow(() -> new OrderNotFoundException("No orders found from " + user.getName()));
+    public List<OrderReceipt> findOrdersByUserId(int id){
+        return orderRepo.findOrdersByUserId(id)
+                .orElseThrow(() -> new OrderNotFoundException("No orders found"));
     }
     public void deleteOrderById(int id){orderRepo.deleteOrderById(id);}
 }
