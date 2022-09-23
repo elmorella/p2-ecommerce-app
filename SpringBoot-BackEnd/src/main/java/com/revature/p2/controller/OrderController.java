@@ -32,6 +32,7 @@ public class OrderController {
     }
     @PostMapping("/add")
     public ResponseEntity<OrderReceipt> addOrder(@RequestBody OrderReceipt orderReceipt){
+        System.out.println("Adding Order: " + orderReceipt.toString());
         OrderReceipt newOrderReceipt = orderService.addOrder(orderReceipt);
         return new ResponseEntity<>(newOrderReceipt, HttpStatus.CREATED);
     }

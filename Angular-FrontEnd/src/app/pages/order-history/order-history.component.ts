@@ -13,34 +13,47 @@ import { User } from 'src/app/model/user.model';
 })
 export class OrderHistoryComponent implements OnInit {
   orders: OrderReceipt[] = [];
+  quantity: Map<number, number> = new Map();
+  price: Map<number, number> = new Map();
   constructor(private orderService: OrderReceiptServiceTsService,
               private authService: AuthService,
               private router: Router) {
    }
 
   ngOnInit(): void {
-
+    if(!this.authService.verifyToken()){
+      this.router.navigate(['login']);
+    }
+    const map = new Map([
+      ['name', 'Tim'],
+      ['country', 'Chile'],
+    ]);
   this.orderService.getUserRecipts(this.authService.getAuthCert().user!.id!).subscribe((orders) =>{
     this.orders = orders;
+    for(let order of this.orders){
+      order.cardQuantity = new Map(Object.entries(order.cardQuantity));
+      let tempQ = this.getItemQuantity(order);
+      let tempP = this.calculatePrice(order);
+      this.quantity.set(order.id!, tempQ);
+      this.price.set(order.id!,tempP);
+    }
   })
-
-   
   }
 
-  getItemQuantity(order: OrderReceipt){
+  getItemQuantity(order: OrderReceipt): number{
     let result = 0;
     for(let item of order.items){
-      result += item.inCartQuantity!;
+      result += order.cardQuantity.get(item.id!.toString())!;
     }
     return result;
   }
 
-  calculatePrice(order: OrderReceipt){
+  calculatePrice(order: OrderReceipt): number{
     let subtotal = 0;
     let taxAmount = 0;
     let total = 0;
     for(let item of order.items){
-      subtotal += item.price * item.inCartQuantity!;
+      subtotal += item.price * order.cardQuantity.get(item.id!.toString())!;
     }
 
     taxAmount = subtotal * .0925;

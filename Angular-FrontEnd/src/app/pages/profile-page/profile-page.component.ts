@@ -19,7 +19,9 @@ export class ProfilePageComponent implements OnInit {
               private authService: AuthService) { }
 
   ngOnInit(): void {
-
+    if(!this.authService.verifyToken()){
+      this.router.navigate(['login']);
+    }
     this.user = this.authService.getAuthCert().user!;
     if(this.user.myAddress == null){
       this.user.myAddress = new MyAddress();

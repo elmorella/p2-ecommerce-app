@@ -51,7 +51,6 @@ export class TestComponent implements OnInit {
 
   public deleteUser(id: Number) {
     this.service.deleteUser(id).subscribe((response: any) => {
-      console.log(response);
     })
   }
 }

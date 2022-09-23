@@ -16,8 +16,6 @@ public class AuthController {
         this.auth = auth;
     }
 
-
-
     @PostMapping("/check")
     public ResponseEntity<Boolean> isValid(@RequestBody AuthCertificate authCertificate){
         Boolean isValid = auth.isValid(authCertificate);

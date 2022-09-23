@@ -26,7 +26,6 @@ export class UserServiceTsService {
   }
 
   public updateUser(user: User) {
-    console.log("in Update")
     return this.http.put<User>(`${this.BASE_URL}/user/update`, user);
   }
 

@@ -18,9 +18,9 @@
                 <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let item of shoppingCart.items ">
                     <div>
                         <h6 class="my-0">{{item.name}}</h6>
-                        <small class="text-muted">Quantity: {{item.inCartQuantity!}}</small>
+                        <small class="text-muted">Quantity: {{shoppingCart.cardQuantity.get(item.id!.toString())}}</small>
                     </div>
-                    <span class="text-muted">{{item.price*item.inCartQuantity!|currency}}</span>
+                    <span class="text-muted">{{item.price*shoppingCart.cardQuantity.get(item.id!.toString())!|currency}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (USD)</span>

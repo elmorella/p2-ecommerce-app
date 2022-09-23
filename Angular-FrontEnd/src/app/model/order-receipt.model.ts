@@ -3,8 +3,8 @@ import { User } from "./user.model";
 
 export class OrderReceipt {
     id?: number
-    // user?: User
     userId?: number
     orderDate?: Date
-    items: Array<Item> = [];
+    items: Item[] = [];
+    cardQuantity: Map<string,number> = new Map();
 }

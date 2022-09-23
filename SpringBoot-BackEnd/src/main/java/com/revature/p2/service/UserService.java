@@ -13,10 +13,8 @@ import java.util.UUID;
 @Service
 @Transactional
 public class UserService{
-
     private final UserRepo userRepo;
     private final AuthService auth;
-
     @Autowired
     public UserService(UserRepo userRepo, AuthService auth){
         this.userRepo = userRepo;

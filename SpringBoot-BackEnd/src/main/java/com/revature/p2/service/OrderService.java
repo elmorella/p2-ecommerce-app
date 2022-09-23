@@ -13,7 +13,6 @@ import java.util.List;
 @Transactional
 public class OrderService {
     private final OrderRepo orderRepo;
-
     @Autowired
     public OrderService(OrderRepo orderRepo){this.orderRepo = orderRepo;}
     public OrderReceipt addOrder(OrderReceipt orderReceipt){return  orderRepo.save(orderReceipt);}
@@ -24,8 +23,10 @@ public class OrderService {
                 .orElseThrow(() -> new OrderNotFoundException("Order with id:" + id + ", not found"));
     }
     public List<OrderReceipt> findOrdersByUserId(int id){
-        return orderRepo.findOrdersByUserId(id)
+        List<OrderReceipt> checkOrders = orderRepo.findOrdersByUserId(id)
                 .orElseThrow(() -> new OrderNotFoundException("No orders found"));
+        System.out.println(checkOrders);
+        return checkOrders;
     }
     public void deleteOrderById(int id){orderRepo.deleteOrderById(id);}
 }

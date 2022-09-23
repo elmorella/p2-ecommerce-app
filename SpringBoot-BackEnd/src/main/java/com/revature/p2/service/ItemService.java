@@ -12,7 +12,6 @@ import java.util.List;
 @Transactional
 public class ItemService {
     private final ItemRepo itemRepo;
-
     @Autowired
     public ItemService(ItemRepo itemRepo) {this.itemRepo = itemRepo;}
     public Item addItem(Item item){return itemRepo.save(item);}

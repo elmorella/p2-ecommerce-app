@@ -21,8 +21,6 @@ export class NavbarComponent implements OnInit {
   }
 
   protected logout(){
-    console.log(this.authService.getAuthCert().valid);
     this.authService.logout();
-    console.log(this.authService.getAuthCert().valid);
   }
 }
