@@ -6,5 +6,6 @@ export class OrderReceipt {
     // user?: User
     userId?: number
     orderDate?: Date
-    items: Array<Item> = [];
+    items: Item[] = [];
+    cardQuantity: Map<string,number> = new Map();
 }

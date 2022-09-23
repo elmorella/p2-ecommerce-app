@@ -6,5 +6,4 @@ export class Item {
         stock?: number
         price: number = 0;
         imageUrl?: String
-        inCartQuantity?: number;
 }

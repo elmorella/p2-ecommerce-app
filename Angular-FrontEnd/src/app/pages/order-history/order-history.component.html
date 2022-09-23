@@ -21,7 +21,7 @@
                         <div>
                           <!-- Card name -->
                           <p class="small text-muted mb-4 pb-2">Date</p>
-                          <p class="lead fw-normal mb-0">{{order.orderDate}}</p>
+                          <p class="lead fw-normal mb-0">{{order.orderDate | date:'medium'}}</p>
                         </div>
                       </div>
                       <div class="col-md-2 d-flex justify-content-center">
@@ -30,7 +30,7 @@
                       <div class="col-md-2 d-flex justify-content-center">
                         <div>
                           <p class="small text-muted mb-4 pb-2">Number of Cards</p>
-                          <p class="lead fw-normal mb-0">{{getItemQuantity(order)}}</p>
+                          <p class="lead fw-normal mb-0" >{{quantity.get(order.id!)}}</p>
                         </div>
                       </div>
                       <div class="col-md-2 d-flex justify-content-center">
@@ -38,7 +38,7 @@
                       <div class="col-md-2 d-flex justify-content-center">
                         <div>
                           <p class="small text-muted mb-4 pb-2">Total Price</p>
-                          <p class="lead fw-normal mb-0">{{calculatePrice(order)|currency}}</p>
+                          <p class="lead fw-normal mb-0">{{price.get(order.id!)|currency}}</p>
                         </div>
                       </div>
                     </div>

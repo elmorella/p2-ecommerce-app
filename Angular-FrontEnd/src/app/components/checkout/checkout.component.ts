@@ -54,7 +54,7 @@ export class CheckoutComponent implements OnInit {
     this.taxAmount = 0
     this.total = 0
     for(let item of this.shoppingCart.items){
-      this.subtotal += item.price * item.inCartQuantity!;
+      this.subtotal += item.price * this.shoppingCart.cardQuantity.get(item.id!.toString())!;
     }
 
     this.taxAmount = this.subtotal * this.taxPercent
@@ -71,7 +71,7 @@ export class CheckoutComponent implements OnInit {
     console.log(this.shoppingCart);
     
     
-    this.orderService.addRecipt(JSON.stringify(this.shoppingCart));
+    this.orderService.addRecipt(this.shoppingCart);
     
     this.orderService.clearShoppingCart();
     this.router.navigate(['home']);
