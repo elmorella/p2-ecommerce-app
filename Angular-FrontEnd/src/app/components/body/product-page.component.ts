@@ -30,7 +30,6 @@ export class ProductPageComponent implements OnInit {
   }
 
   addToCart(id?: Number){
-    console.log(id)
     this.itemService.getItemById(id!).subscribe(
       (item: Item) => {
         this.orderService.addToShoppingCart(item)

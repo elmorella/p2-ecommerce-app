@@ -68,11 +68,7 @@ export class CheckoutComponent implements OnInit {
     }
     this.shoppingCart.orderDate = new Date();
     this.shoppingCart.userId = this.authService.getAuthCert().user?.id;
-    console.log(this.shoppingCart);
-    
-    
     this.orderService.addRecipt(this.shoppingCart);
-    
     this.orderService.clearShoppingCart();
     this.router.navigate(['home']);
   }

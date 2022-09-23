@@ -18,15 +18,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   public validateCredentials() {
-
     //let certificate: AuthCertificate = new AuthCertificate();
-    console.log(this.credentials);
     this.authService.doLoginAttempt(this.credentials).subscribe((response: AuthCertificate) => {
       let certificate: AuthCertificate = response;
-      console.log(response)
-      console.log('isAuthorized: ' + certificate.valid);
-      console.log('user in cert: ' + certificate.user?.name);
-      console.log('TOKEN: ' + certificate.token)
       this.authService.setAuthCert(certificate);
       this.router.navigate(['home']);
     })

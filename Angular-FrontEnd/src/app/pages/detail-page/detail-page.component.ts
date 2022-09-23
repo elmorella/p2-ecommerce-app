@@ -27,7 +27,6 @@ export class DetailPageComponent implements OnInit {
       this.router.navigate(['login']);
     }
     let id = this.activatedRoute.snapshot.paramMap.get('id')!;
-    console.log('id: ' + id)
     this.itemService.getItemById(parseInt(id)).subscribe(
       (item: Item) => {
         this.item = item;
@@ -35,7 +34,6 @@ export class DetailPageComponent implements OnInit {
     )
   }
   addToCart(id?: Number){
-    console.log(id)
     this.itemService.getItemById(id!).subscribe(
       (item: Item) => {
         this.orderService.addToShoppingCart(item)

@@ -31,7 +31,6 @@ export class OrderHistoryComponent implements OnInit {
   this.orderService.getUserRecipts(this.authService.getAuthCert().user!.id!).subscribe((orders) =>{
     this.orders = orders;
     for(let order of this.orders){
-      console.log(map)
       order.cardQuantity = new Map(Object.entries(order.cardQuantity));
       let tempQ = this.getItemQuantity(order);
       let tempP = this.calculatePrice(order);
@@ -39,13 +38,10 @@ export class OrderHistoryComponent implements OnInit {
       this.price.set(order.id!,tempP);
     }
   })
-
-   
   }
 
   getItemQuantity(order: OrderReceipt): number{
     let result = 0;
-    console.log(order)
     for(let item of order.items){
       result += order.cardQuantity.get(item.id!.toString())!;
     }
@@ -53,12 +49,10 @@ export class OrderHistoryComponent implements OnInit {
   }
 
   calculatePrice(order: OrderReceipt): number{
-    console.log(order)
     let subtotal = 0;
     let taxAmount = 0;
     let total = 0;
     for(let item of order.items){
-      console.log(item)
       subtotal += item.price * order.cardQuantity.get(item.id!.toString())!;
     }
 

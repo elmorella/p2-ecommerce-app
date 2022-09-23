@@ -74,27 +74,9 @@ export class OrderReceiptServiceTsService {
   }
 
   addRecipt(receipt: OrderReceipt){
-    console.log(receipt);
     let cardQ = JSON.stringify(Object.fromEntries(receipt.cardQuantity))
-    console.log(cardQ)
     let jsonReceipt = JSON.stringify(receipt)
     .replace("\"cardQuantity\":{}", "\"cardQuantity\":" + cardQ);
-    console.log(jsonReceipt);
     this.http.post(`${this.BASE_URL}/add`, jsonReceipt,{ headers: this.header }).subscribe();
   }
-
-
-  // mapForm(input: string, order: OrderReceipt){
-  //   input = input.replace("\{|\}", "")
-  //   let items = input.split(",");
-  //   let result ="{[";
-  //   items.forEach((item) =>{
-  //     // /?<=(["']\b))(?:(?=(\\?))\2.)*?(?=\1)/
-  //     let match = item.match(/"(.*?[^\\])"/);
-  //     result += "{\"order_Id\":" + order.id + ",\"itemId\":" + match![1] +",\"quantity\":" + item.substring(item.search(":") + 1) +"}";
-  //   });
-  //   result += "]}"
-  //   console.log(result);
-  //   return result;
-  // }
 }
