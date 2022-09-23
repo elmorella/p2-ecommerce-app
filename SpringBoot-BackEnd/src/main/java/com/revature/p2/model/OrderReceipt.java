@@ -15,14 +15,12 @@ import java.util.*;
 @Data
 @NoArgsConstructor
 public class OrderReceipt implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="order_id", nullable = false, updatable = false)
     private int id;
     private Date orderDate;
     private int userId;
-
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "order_items",
@@ -30,16 +28,11 @@ public class OrderReceipt implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "item_id", nullable = false,updatable = false)
     )
     private Set<Item> items = new HashSet<>();
-
-
-
     @ElementCollection
     @MapKeyColumn(name="item_id")
     @Column(name="quantity")
     @CollectionTable(name="card_quantity", joinColumns=@JoinColumn(name="order_id"))
     private Map<Integer, Integer> cardQuantity = new HashMap<>();
-
-
     @Override
     public String toString() {
         return "OrderReceipt{" +

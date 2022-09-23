@@ -26,7 +26,6 @@ public class User implements Serializable{
     private MyAddress myAddress;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userId", cascade = CascadeType.REMOVE)
     private List<OrderReceipt> orderReceipts;
-
     public User(String name, String username, String email, String password, List<OrderReceipt> orderReceipts) {
         this.name = name;
         this.username = username;

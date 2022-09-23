@@ -26,11 +26,8 @@ public class Item implements Serializable {
     private int stock;
     private float price;
     private String imageUrl;
-
     @ManyToMany(mappedBy = "items", cascade = CascadeType.MERGE)
     private Set<OrderReceipt> orders = new HashSet<>();
-
-
     @Override
     public String toString() {
         return "{" +

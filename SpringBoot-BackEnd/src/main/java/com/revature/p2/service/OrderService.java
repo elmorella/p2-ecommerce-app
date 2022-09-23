@@ -13,7 +13,6 @@ import java.util.List;
 @Transactional
 public class OrderService {
     private final OrderRepo orderRepo;
-
     @Autowired
     public OrderService(OrderRepo orderRepo){this.orderRepo = orderRepo;}
     public OrderReceipt addOrder(OrderReceipt orderReceipt){return  orderRepo.save(orderReceipt);}

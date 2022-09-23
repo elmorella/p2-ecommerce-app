@@ -12,10 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class AuthService {
     private final AuthCertification auth;
-
     @Autowired
     public AuthService(AuthCertification auth){this.auth = auth;}
-
     public boolean isValid(AuthCertificate certificate){
         AuthCertificate database = auth.findAuthCertificateByUser(certificate.getUser())
                 .orElseThrow(() -> new UserNotFoundException("User Certificate not found"));
@@ -36,5 +34,4 @@ public class AuthService {
         certificate.setValid(false);
         return auth.save(certificate);
     }
-
 }
