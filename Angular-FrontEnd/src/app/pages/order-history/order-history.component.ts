@@ -24,10 +24,6 @@ export class OrderHistoryComponent implements OnInit {
     if(!this.authService.verifyToken()){
       this.router.navigate(['login']);
     }
-    const map = new Map([
-      ['name', 'Tim'],
-      ['country', 'Chile'],
-    ]);
   this.orderService.getUserRecipts(this.authService.getAuthCert().user!.id!).subscribe((orders) =>{
     this.orders = orders;
     for(let order of this.orders){
